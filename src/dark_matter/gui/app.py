@@ -151,6 +151,18 @@ if prompt := st.chat_input("Type a message..."):
 
 
 # ---------------------------------------------------------------------------
+# Entry point for console script
+# ---------------------------------------------------------------------------
+def main():
+    """Entry point for the ``dark-matter-gui`` console script."""
+    import sys
+    from streamlit.web import cli as stcli
+
+    sys.argv = ["streamlit", "run", __file__]
+    sys.exit(stcli.main())
+
+
+# ---------------------------------------------------------------------------
 # Footer
 # ---------------------------------------------------------------------------
 st.divider()
