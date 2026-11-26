@@ -49,6 +49,7 @@ with st.sidebar:
             "Assistant (general)",
             "Triage (specialist handoffs)",
             "Tools (weather + time)",
+            "Web Search (DuckDuckGo)",
         ],
         index=0,
     )
@@ -77,6 +78,8 @@ def build_agent(agent_name: str):
         import datetime
         return f"The current time is {datetime.datetime.now().strftime('%H:%M')}."
 
+    from dark_matter.examples.web_search_tool import web_agent as web_search_agent
+
     if agent_name == "Assistant (general)":
         return Agent(
             name="Assistant",
@@ -89,6 +92,9 @@ def build_agent(agent_name: str):
             instructions="You are a helpful assistant with weather and time tools. Use them when relevant.",
             tools=[get_weather, get_time],
         )
+
+    if agent_name == "Web Search (DuckDuckGo)":
+        return web_search_agent
 
     # Triage: coordinator agent with handoffs to specialists
     sales_agent = Agent(
