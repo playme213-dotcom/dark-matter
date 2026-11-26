@@ -1,7 +1,7 @@
 [project]
-name = "openai-agents"
+name = "dark-matter"
 version = "0.26.0"
-description = "OpenAI Agents SDK"
+description = "Dark Matter - A fork of OpenAI Agents SDK"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -38,8 +38,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://openai.github.io/openai-agents-python/"
-Repository = "https://github.com/openai/openai-agents-python"
+Homepage = "https://github.com/playme213-dotcom/dark-matter"
+Repository = "https://github.com/playme213-dotcom/dark-matter"
 
 [project.optional-dependencies]
 # Protobuf exclusions retain patched 5.x and 6.x releases (GHSA-7gcm-g887-7qv7).
@@ -133,10 +133,10 @@ dev = [
 ]
 
 [tool.uv.workspace]
-members = ["agents"]
+members = ["dark_matter"]
 
 [tool.uv.sources]
-agents = { workspace = true }
+dark_matter = { workspace = true }
 
 [build-system]
 requires = ["hatchling"]
@@ -152,7 +152,7 @@ exclude = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/agents"]
+packages = ["src/dark_matter"]
 
 
 [tool.ruff]
@@ -180,8 +180,8 @@ select = [
   "TRY201", # needless exception name in raise statements
   "UP", # pyupgrade
 ]
-isort = { combine-as-imports = true, known-first-party = ["agents"] }
-logger-objects = ["agents.logger.logger"]
+isort = { combine-as-imports = true, known-first-party = ["dark_matter"] }
+logger-objects = ["dark_matter.logger.logger"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
@@ -222,7 +222,7 @@ module = ["vercel", "vercel.*"]
 ignore_missing_imports = true
 
 [tool.coverage.run]
-source = ["src/agents"]
+source = ["src/dark_matter"]
 omit = [
   "tests/*",
   "src/agents/sandbox/sandboxes/*.py",
